@@ -1,0 +1,19 @@
+{
+  "old_db": {
+    "odbc": {
+      "driver": "{4D v16 ODBC Driver 64-Bit}",
+      "host": "192.168.100.21",
+      "user": "{Developer, Epic}",
+      "password": "Epicmission44!",
+      "port": 21200
+    }
+  },
+  "new_db": {
+    "mysql": {
+      "host": "localhost",
+      "user": "root",
+      "password": "",
+      "database": "migration-test"
+    }
+  }
+}
