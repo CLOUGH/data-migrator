@@ -1,9 +1,11 @@
-import * as odbc from 'odbc';
+const odbc = require('odbc');
 
-export class Migrator {
-  run(): Promise<null> {
+class Migrator {
+  run() {
     return new Promise((resolve, reject) => {
       console.log('ran successfully');
     });
   }
 }
+
+module.exports = Migrator;

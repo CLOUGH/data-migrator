@@ -2,7 +2,7 @@
   "name": "data-migrator",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "src/electron/main.ts",
+  "main": "src/electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

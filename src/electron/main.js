@@ -1,11 +1,17 @@
 /*jshint esversion: 6 */
-require('ts-node').register();
-const { app, BrowserWindow, ipcMain } = require('electron');
+
+const {
+  app,
+  BrowserWindow,
+  ipcMain
+} = require('electron');
 const path = require('path');
 const url = require('url');
-const TableHandler = require('./handlers/table-handler');
+
+const tableEventHandlers = require('./handlers/table.handler');
+
+
 let win;
-// import { TableHandler } from './handlers/table-handler';
 
 function createWindow() {
   win = new BrowserWindow({
@@ -21,7 +27,9 @@ function createWindow() {
   }));
 
   // Open the DevTools optionally:
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools({
+    mode: 'detach',
+  });
 
   win.on('closed', () => {
     win = null;
@@ -43,9 +51,8 @@ app.on('activate', () => {
   }
 });
 
-console.log('reaach2');
-
 // IPCMain events handlers
-ipcMain.on('table.getMapping', TableHandler.getMapping);
+ipcMain.on('table.getMapping', tableEventHandlers.getMapping);
+ipcMain.on('table.migrate', tableEventHandlers.migrate);
 // ipcMain.on('table.migrate', TableHandler.getMapping);
 // ipcMain.on('migrate', require('./handlers/migrate-handler'));
