@@ -8,8 +8,12 @@ import { ElectronService } from 'ngx-electron';
 })
 export class AppComponent {
 
-  constructor(private _electronService: ElectronService) {}   // DI
-  
+  tables = [
+    'users'
+  ];
+
+  constructor(private _electronService: ElectronService) { }   // DI
+
   launchWindow() {
     this._electronService.shell.openExternal('https://coursetro.com');
   }
