@@ -10,6 +10,7 @@ const url = require('url');
 
 const tableEventHandlers = require('./handlers/table.handler');
 
+// require('electron-reload')(__dirname);
 
 let win;
 
@@ -54,5 +55,7 @@ app.on('activate', () => {
 // IPCMain events handlers
 ipcMain.on('table.getMapping', tableEventHandlers.getMapping);
 ipcMain.on('table.migrate', tableEventHandlers.migrate);
+ipcMain.on('table.generateNewMapping', tableEventHandlers.generateNewMapping);
 // ipcMain.on('table.migrate', TableHandler.getMapping);
+
 // ipcMain.on('migrate', require('./handlers/migrate-handler'));

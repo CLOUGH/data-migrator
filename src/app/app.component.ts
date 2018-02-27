@@ -7,15 +7,5 @@ import { ElectronService } from 'ngx-electron';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  tables = [
-    'users'
-  ];
-
   constructor(private _electronService: ElectronService) { }   // DI
-
-  launchWindow() {
-    this._electronService.shell.openExternal('https://coursetro.com');
-  }
-
 }

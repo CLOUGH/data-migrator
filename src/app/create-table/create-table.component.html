@@ -1,0 +1,35 @@
+<div class="header">
+  <button mat-icon-button (click)="uploadTemplate()">
+    <mat-icon>file_upload</mat-icon>
+
+  </button>
+</div>
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Table Name" [(ngModel)]="mapping.table">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Old Table Name" [(ngModel)]="mapping.oldTable">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Phase" [(ngModel)]="mapping.phase" type="number" min="0">
+  </mat-form-field>
+
+  <h3>Fields</h3>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let field of mapping.fields">
+      <mat-expansion-panel-header>
+        {{field.property.name}}
+      </mat-expansion-panel-header>
+      <pre>{{field | json}}</pre>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<br>
+<div class="footer">
+  <button mat-raised-button color="primary" (click)="save()">Create</button>
+  <button mat-raised-button [routerLink]="['']">Cancel</button>
+</div>

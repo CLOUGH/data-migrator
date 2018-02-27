@@ -1,0 +1,48 @@
+<div class="table-container ">
+  <div class="header">
+    <button mat-raised-button color="primary" (click)="newTable()">New Table</button>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="tables">
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>Select</mat-header-cell>
+      <mat-cell *matCellDef="let table">
+        <mat-checkbox [(ngModel)]="table.selected"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Table</mat-header-cell>
+      <mat-cell *matCellDef="let table"> {{table.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="phase">
+      <mat-header-cell *matHeaderCellDef>Phase</mat-header-cell>
+      <mat-cell *matCellDef="let table"> {{table.phase}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+      <mat-cell *matCellDef="let table"> {{table.status}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+      <mat-cell *matCellDef="let table">
+        <button mat-icon-button [routerLink]="['table']">
+          <mat-icon>info</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>play_arrow</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>
